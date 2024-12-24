@@ -1,0 +1,27 @@
+-In the db.php i used both the connection methodes (OOP and PROCEDURAL) just to try them both but i'll stick to the OOP methode
+because it's more organised ad clearer than the procedural methode with he ability to define methodes and classes and more flexible.
+
+
+-For displaying the books i used fetch_assoc and fetch_row for fetch_assoc it gets the data in associative array form ['id' => 1, 'titre' => 'titre', 'auteur' => 'auteur', 'category' => 'category'.
+and the fetch_row gets the data in an indexed array form[0,1,2,....]
+*I also tried to use fetch_array but i've read that it no longers works in the last update but understood that it kinda combines the two last ones
+where you can use MYSQL_ASSOC where it gets and associative array or you can use MYSQL_NUM that gets the data in an indexed array (just like fetc_row)
+or you can use them BOTH in MYSQL_BOTH that will try to get the data in different ways.
+Also i used data_seek that allows you to change the pointer so i reseted to 0 to show the second methode
+
+associative array is an array where each element is associated with an key instead of an index
+and indexed array is basically just a normal array where you call each thing using an index
+
+obviously associative array is better since each thing is related to it's name for the index you might not get it right.
+
+-data_seek has a pointer that you can move or reset that's what i used in the liste_livres so i can change the pointer to 0 showing how both the methodes are working and starting from 0 when it changeds to another methode
+
+
+-i connected the db.php (connection page) with other pages using require_once where it adds connects the db page only once when entering the page and if there's a problem it displays FATAL ERROR blocking the page from redering
+There's also require that do the same job (almost) 
+there's include that instead of blocking the entire page if theres and issue it just displays a warning and include_once that does the same thing but only once when entering the pages
+
+I used the methode POST to get the data from the form instead of GET because GET isn't really secure and is more used in research stuff like wikipedia 
+where it shows what you intered in the url at the top for POST it shows it in the server.
+
+also prepare that i didn't know what it did before is actually a security methode preparing to execution for something in the database (basically telling the database about the structure coming up)
